@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Curved Underline</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f9fa;
+    }
+
+    .underlined {
+      position: relative;
+      margin-right: 1rem;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #cb1829;
+    }
+
+    .underlined::after {
+      content: "";
+      position: absolute;
+      bottom: -0.6em; /* Position the underline below the text */
+      left: 50%;
+      width: 0%; /* Start with no width */
+      height: 0.5em; /* Height of the curve */
+      border: solid 2px #cb1829;
+      border-color: #cb1829 transparent transparent transparent;
+      border-radius: 50%; /* Creates the curve */
+      transform: translateX(-50%);
+      transition: width 0.5s ease-in-out; /* Smooth animation for width */
+    }
+
+    .underlined:hover::after {
+      width: 120%; /* Full curve appears on hover */
+    }
+
+    /* Adjust text sizes dynamically */
+    .small {
+      font-size: 0.8rem;
+    }
+
+    .big {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <span class="underlined">Hover Me</span>
+  <span class="underlined small">Hover Me</span>
+  <span class="underlined big">Hover Me</span>
+</body>
+</html>
