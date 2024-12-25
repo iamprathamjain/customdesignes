@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+  <!-- Custom Styles -->
+  <style>
+    /* Body and General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgba(255, 230, 204, 0.2);
+    }
+
+    .testimonials-section {
+      padding: 60px 20px;
+      background-color: rgba(255, 230, 204, 0.2);
+    }
+
+    .testimonials-section h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: #9F7A49;
+      margin-bottom: 40px;
+    }
+
+    .swiper {
+      margin-top: 20px;
+    }
+
+    .swiper-slide {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 40px 30px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .swiper-slide:hover {
+      transform: scale(1.03);
+    }
+
+    .swiper-slide .testimonial-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 3px solid #9F7A49;
+    }
+
+    .swiper-slide .testimonial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-slide p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 25px;
+      font-style: italic;
+      padding: 0 20px;
+    }
+
+    .swiper-slide .author {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #9F7A49;
+      margin-top: 10px;
+    }
+
+    .swiper-slide .role {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Swiper Buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #9F7A49;
+    }
+
+    /* Pagination Bullets */
+    .swiper-pagination-bullet {
+      background-color: #9F7A49;
+    }
+
+    @media (min-width: 768px) {
+      .swiper-slide {
+        padding: 50px 60px;
+      }
+
+      .swiper-slide p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="testimonials-section">
+    <h2>What Our Customers Say</h2>
+
+    <!-- Swiper Container -->
+    <div class="swiper testimonials-slider">
+      <div class="swiper-wrapper">
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-image">
+            <img src="https://via.placeholder.com/80" alt="Poonam Dhauka">
+          </div>
+          <p>"One stop solution for all the solar installation services. Highly trained and skilled staff, quick service and no reminders for monthly service check. Value for money. Best in Bhopal. 10/10!"</p>
+          <div class="author">Poonam Dhauka</div>
+          <div class="role">Influencer</div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-image">
+            <img src="https://via.placeholder.com/80" alt="Rahul Mehta">
+          </div>
+          <p>"Excellent customer service and quick response time. Highly recommend them for all solar energy solutions. Very professional team!"</p>
+          <div class="author">Rahul Mehta</div>
+          <div class="role">Entrepreneur</div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide">
+          <div class="testimonial-image">
+            <img src="https://via.placeholder.com/80" alt="Anjali Verma">
+          </div>
+          <p>"Fantastic experience from start to finish. The team ensured smooth installation and provided helpful insights. Great value!"</p>
+          <div class="author">Anjali Verma</div>
+          <div class="role">Homemaker</div>
+        </div>
+        <!-- Testimonial 4 -->
+        <div class="swiper-slide">
+          <div class="testimonial-image">
+            <img src="https://via.placeholder.com/80" alt="Rajesh Kumar">
+          </div>
+          <p>"The team is exceptionally skilled and provided timely services. Their professionalism is unmatched. Highly satisfied!"</p>
+          <div class="author">Rajesh Kumar</div>
+          <div class="role">Engineer</div>
+        </div>
+      </div>
+
+      <!-- Swiper Pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Swiper.js -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const swiper = new Swiper(".testimonials-slider", {
+        slidesPerView: 1,
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    });
+  </script>
+</body>
+</html>

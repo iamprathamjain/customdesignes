@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NanoGallery2 Example</title>
+
+    <!-- NanoGallery2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nanogallery2/dist/css/nanogallery2.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #282c34;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .gallery-section {
+            padding: 50px 0;
+        }
+
+        .nanogallery2 {
+            --ngy2-bgColor: #282c34;
+            --ngy2-hover-bgColor: #444;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="gallery-section">
+        <div class="container">
+            <h1 data-aos="fade-up">Gallery Section with NanoGallery2</h1>
+            <div id="myGallery" data-aos="fade-up"></div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- NanoGallery2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/nanogallery2/dist/jquery.nanogallery2.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Initialize NanoGallery2
+        $(document).ready(function () {
+            $('#myGallery').nanogallery2({
+                items: [
+                    {
+                        src: 'images/startae-team-7tXA8xwe4W4-unsplash.jpg',
+                        srct: 'images/startae-team-7tXA8xwe4W4-unsplash.jpg',
+                        title: 'Top Stories',
+                        description: 'Today’s featured image',
+                    },
+                    {
+                        src: 'https://via.placeholder.com/600x400',
+                        srct: 'https://via.placeholder.com/150x100',
+                        title: 'Gift Suggestions',
+                        description: 'Creative gift ideas',
+                    },
+                    {
+                        src: 'https://via.placeholder.com/600x600',
+                        srct: 'https://via.placeholder.com/150x150',
+                        title: 'Mindful Break',
+                        description: 'Relax and rejuvenate',
+                    },
+                ],
+                galleryTheme: {
+                    thumbnail: {
+                        borderColor: '#fff',
+                        backgroundColor: '#333',
+                        titleColor: '#fff',
+                        descriptionColor: '#aaa',
+                    },
+                },
+                thumbnailHeight: 200,
+                thumbnailWidth: 'auto',
+                thumbnailHoverEffect2: 'scale120',
+                galleryMaxRows: 2,
+                galleryDisplayMode: 'rows',
+            });
+        });
+    </script>
+</body>
+
+</html>

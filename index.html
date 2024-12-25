@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Bootstrap CSS CDN -->
+  <link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  
+  <!-- Bootstrap Icons CDN -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+  --color-primary: #0d83fd;    /* Main brand color (blue) */
+  --color-light: #ffffff;               /* Light background color */
+  --color-dark: #333333;                /* Dark text color */
+  --color-white: #ffffff;               /* White color */
+}
+  
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+#topbar {
+    background: var( --color-primary);
+    height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+    color: #fff;
+    padding: 0;
+}
+
+/* Contact Info Styling */
+#topbar .contact-info {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+#topbar .contact-info i {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 10px;
+}
+
+#topbar .contact-info a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#topbar .contact-info a:hover {
+    color: #ddd; /* Hover color for email link */
+}
+
+/* Social Links Styling */
+#topbar .social-links {
+    display: flex;
+    align-items: center;
+}
+
+#topbar .social-links a {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+#topbar .social-links a:hover {
+    color: #ddd; /* Hover color for social icons */
+}
+
+
+#page1 {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-light);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-light));
+  background: linear-gradient(45deg, rgb(122, 126, 241), rgb(199, 199, 203));
+  background: linear-gradient(45deg, rgb(122, 126, 241) 0%, rgb(199, 199, 203) 50%, rgb(44, 24, 229) 100%);
+
+
+  position: relative;
+  padding: 0 0vw;
+  /* padding: 0 2vw; */
+  /* background-image: url('images/startae-team-7tXA8xwe4W4-unsplash.jpg'); */
+  background-size: cover;
+  background-position: center;
+  
+}
+
+#page1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  z-index: 1; /* Changed from -2 to 1 */
+  pointer-events: none; /* Allows clicking through the overlay */
+}
+/* 
+#our-services h1, #left h3 {
+    background: linear-gradient(to right, #1223e5, white); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+} */
+#our-services h1, #left h3 {
+    color: var(--color-primary);
+}
+
+
+nav h2
+{
+    /* color: var(--color-primary);  */
+    font-size: 2em; /* Adjust font size as needed */
+    font-weight: bold;
+    background: linear-gradient(71deg, var(--color-primary), rgb(95, 95, 218)); /* Define gradient colors and angle */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+nav {
+  padding: 1vw 0;
+  width: 100%;
+  background-color: var(--color-light);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav h3 {
+  display: none;
+}
+
+#nav-part2 {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+#nav-part2 h4 {
+  padding: 10px 20px;
+  border: 1px solid var(--color-dark);
+  border-radius: 50px;
+  color: var(--color-dark);
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  transition: all ease 0.4s;
+  overflow: hidden;
+}
+
+#nav-part2 h4::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-primary);
+  left: 0;
+  bottom: -100%;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+}
+
+#nav-part2 h4:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+#nav-part2 h4 a {
+  color: var(--color-dark);
+  text-decoration: none;
+  position: relative;
+  z-index: 9;
+}
+
+#nav-part2 h4:hover a {
+  color: var(--color-light);
+}
+
+#our-services {
+  margin-top: 5vh;
+  padding: 2vh 0;
+  justify-content: space-evenly;
+  text-align: justify;
+}
+
+.buttongroups {
+  justify-content: center;
+  text-align: start;
+  margin-top: 2vh;
+}
+
+.btn-responsive {
+  min-width: 100px;
+  max-width: 150px;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-responsive:hover {
+  background-color: var(--color-white);
+  transform: scale(1.05);
+  color: var(--color-primary);
+}
+
+#center {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+  padding-bottom: 2.5vw;
+}
+
+#left h3 {
+  width: 40vw;
+  font-size: 1.8vw;
+  line-height: 2vw;
+}
+
+#center h1 {
+  font-size: 8vw;
+  text-align: right;
+  line-height: 9vw;
+  color: var(--color-primary);
+}
+
+#page2 {
+  min-height: 10vh;
+  width: 100%;
+  background-color: var(--color-light);
+  padding: 2vw 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+#counts {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1vw;
+  width: 100%;
+}
+
+.stat-box {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 20vw;
+  padding: 2vw 1.5vw;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 1vw;
+}
+
+.stat-box:hover {
+  transform: scale(1.05);
+}
+
+.stat-box h2 {
+  font-size: 3vw;
+  color: var(--color-dark);
+  margin-bottom: 0.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.stat-box p {
+  font-size: 1.2vw;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+.stat-box .bi {
+  font-size: 2.5vw;
+  color: var(--color-primary);
+  margin-right: 0.3vw;
+}
+  </style>
+
+</head>
+<body>
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+  <div id="page1" >
+    <nav>
+      <!-- <img src="https://assets-global.website-files.com/64d3dd9edfb41666c35b15b7/64d3dd9edfb41666c35b15c2_Sundown%20logo.svg" alt="Sundown Logo" /> -->
+      <h2>SURYAONE</h1>
+
+      <div id="nav-part2" class="">
+        <h4><a href="#">Home</a></h4>
+        <h4><a href="#">Services</a></h4>
+        <h4><a href="#">Testimonials</a></h4>
+        <h4><a href="#">Contact</a></h4>
+      </div>
+      <h3>Menu</h3>
+    </nav>
+
+    
+
+    <div id="our-services" data-aos="fade-right" data-aos-delay="500"  data-aos-duration="1000">
+        <h1>Check Our Experties: <br> Registrations</h1>
+        <div class="buttongroups">
+            <button class="btn btn-responsive btn-success btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Contact Us">
+                <i class="bi bi-person-lines-fill"></i> Contact Us
+            </button>
+            <button class="btn btn-responsive btn-success btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Call">
+                <i class="bi bi-telephone-fill"></i> Call
+            </button>
+            <button class="btn btn-responsive btn-success btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Email">
+                <i class="bi bi-envelope-fill"></i> Email
+            </button>
+        </div>
+        <div class="buttongroups">
+            <button class="btn btn-responsive btn-success btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram">
+                <i class="bi bi-instagram"></i> Instagram
+            </button>
+            <button class="btn btn-responsive btn-success btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Whatsapp">
+                <i class="bi bi-whatsapp"></i> Whatsapp
+            </button>
+            <button class="btn btn-responsive btn-success btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
+                <i class="bi bi-facebook"></i> Facebook
+            </button>
+        </div>
+        
+     
+        
+    </div>
+
+    <div id="center" class="" data-aos="fade-left" data-aos-delay="500"  data-aos-duration="1000">
+      <div id="left">
+        <h3>SuryaOne is a multi-disciplinary studio focused on creating unique, end-to-end experiences and environments.</h3>
+      </div>
+      <div id="right">
+        <h1>YOUR <br>GROWTH<br> LAUNCHPAD</h1>
+      </div>
+    </div>
+
+    <div id="hero-shape">
+
+        <div id="hero1"></div>
+        <div id="hero2"></div>
+        <div id="hero3"></div>
+    </div>
+
+
+   
+  </div>
+
+  <div id="page2">
+    <div id="counts">
+        <div class="stat-box">
+            <h2><i class="bi bi-emoji-smile-fill"></i> 232</h2>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-box">
+            <h2><i class="bi bi-folder-fill"></i> 521</h2>
+            <p>Projects</p>
+        </div>
+        <div class="stat-box">
+            <h2><i class="bi bi-headset"></i> 1463</h2>
+            <p>Hours of Support</p>
+        </div>
+        <div class="stat-box">
+            <h2><i class="bi bi-people-fill"></i> 15</h2>
+            <p>Hard Workers</p>
+        </div>
+    </div>
+
+
+
+ 
+</div>
+
+
+
+
+<script>
+    // Function to update CSS variables
+    function updateColor(varName, colorValue) {
+      document.documentElement.style.setProperty(varName, colorValue);
+    }
+
+    // Event listeners for color inputs
+    document.getElementById("colorPrimary").addEventListener("input", function() {
+      updateColor("--color-primary", this.value);
+    });
+
+    document.getElementById("colorLight").addEventListener("input", function() {
+      updateColor("--color-light", this.value);
+    });
+
+    document.getElementById("colorDark").addEventListener("input", function() {
+      updateColor("--color-dark", this.value);
+    });
+
+    document.getElementById("colorWhite").addEventListener("input", function() {
+      updateColor("--color-white", this.value);
+    });
+  </script>
+  <!-- Bootstrap JS, Popper.js, and jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+function animateBackground(elementId, colors, stops, initialAngle = 45, speed = 1) {
+    const page = document.getElementById(elementId);
+    let angle = initialAngle;
+
+    function animate() {
+        angle += speed; // Increment the angle based on the speed parameter
+        if (angle >= 360) angle = 0; // Reset the angle to keep it within 360 degrees
+
+        // Build the gradient string with angle, colors, and stops
+        let gradient = `linear-gradient(${angle}deg`;
+        colors.forEach((color, index) => {
+            gradient += `, ${color} ${stops[index] || ''}`;
+        });
+        gradient += ')';
+
+        page.style.background = gradient; // Apply the gradient to the element
+        requestAnimationFrame(animate); // Call the function on the next frame
+    }
+
+    animate(); 
+}
+
+// Usage Example:
+// Set up an array of colors and stops for a smooth gradient
+// animateBackground('page1', 
+//     ['rgb(122, 126, 241)', 'rgb(199, 199, 203)', 'rgb(199, 199, 203)'], 
+//     ['0%', '45%', '90%'], 
+//     90, // Initial angle
+//     0.6 // Speed of animation
+// );
+animateBackground('page1', 
+    [
+     
+        
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',  // white
+     
+        
+        'rgb(173, 216, 230,0.5)', // powder blue
+        
+    
+        
+        
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    9,  // Initial angle
+    0.6  // Speed of animation
+);
+
+
+  </script>
+  <script>
+    // Create and inject CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      .meteor-cursor {
+        position: fixed;
+        width: 30px;
+        height: 30px;
+        pointer-events: none;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        mix-blend-mode: screen;
+        z-index: 999999;
+      }
+    
+      .meteor-flame {
+        position: fixed;
+        pointer-events: none;
+        z-index: 999998;
+        opacity: 0;
+        border-radius: 50%;
+        mix-blend-mode: screen;
+      }
+    
+      .meteor-particle {
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 999997;
+        opacity: 0;
+        box-shadow: 0 0 6px #ffffff;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Create meteor core
+    const meteor = document.createElement('div');
+    meteor.className = 'meteor-cursor';
+    document.body.appendChild(meteor);
+    
+    // Generate random color
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        return `rgb(${r},${g},${b})`;
+    }
+    
+    // Track mouse movement with smooth animation
+    let mouseX = 0, mouseY = 0;
+    let meteorX = 0, meteorY = 0;
+    let prevX = 0, prevY = 0;
+    let speed = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    
+        // Calculate speed
+        const dx = mouseX - prevX;
+        const dy = mouseY - prevY;
+        speed = Math.sqrt(dx * dx + dy * dy);
+    
+        prevX = mouseX;
+        prevY = mouseY;
+    
+        // Create effects based on movement speed
+        if (speed > 5) {
+            createFlame(meteorX, meteorY, speed);
+            for (let i = 0; i < Math.min(speed / 5, 3); i++) {
+                createParticle(meteorX, meteorY, speed);
+            }
+        }
+    });
+    
+    // Smooth meteor animation
+    function animateMeteor() {
+        // Smooth follow with easing
+        meteorX += (mouseX - meteorX) * 0.2;
+        meteorY += (mouseY - meteorY) * 0.2;
+    
+        meteor.style.left = meteorX + 'px';
+        meteor.style.top = meteorY + 'px';
+    
+        // Adjust meteor size and color based on speed
+        const scale = 1 + Math.min(speed / 50, 0.5);
+        meteor.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        meteor.style.background = `radial-gradient(circle, ${getRandomColor()} 0%, rgba(0,0,0,0) 70%)`;
+    
+        requestAnimationFrame(animateMeteor);
+    }
+    animateMeteor();
+    
+    // Create flame effect
+    function createFlame(x, y, speed) {
+        const flame = document.createElement('div');
+        flame.className = 'meteor-flame';
+        document.body.appendChild(flame);
+    
+        // Set random color and size based on speed
+        const size = 20 + Math.min(speed, 30);
+        flame.style.width = size + 'px';
+        flame.style.height = size + 'px';
+        flame.style.background = `radial-gradient(circle, ${getRandomColor()} 0%, rgba(0,0,0,0) 80%)`;
+    
+        // Position slightly behind meteor
+        const angle = Math.atan2(mouseY - prevY, mouseX - prevX);
+        const offsetX = Math.cos(angle) * -10;
+        const offsetY = Math.sin(angle) * -10;
+    
+        flame.style.left = (x + offsetX) + 'px';
+        flame.style.top = (y + offsetY) + 'px';
+    
+        // Animate flame
+        let opacity = 0.8;
+        let scale = 1;
+    
+        function animateFlame() {
+            opacity -= 0.05;
+            scale += 0.1;
+    
+            flame.style.opacity = opacity;
+            flame.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    
+            if (opacity > 0) {
+                requestAnimationFrame(animateFlame);
+            } else {
+                flame.remove();
+            }
+        }
+    
+        requestAnimationFrame(animateFlame);
+    }
+    
+    // Create particles
+    function createParticle(x, y, speed) {
+        const particle = document.createElement('div');
+        particle.className = 'meteor-particle';
+        document.body.appendChild(particle);
+    
+        // Set random color
+        particle.style.background = getRandomColor();
+    
+        // Random particle trajectory
+        const angle = Math.atan2(mouseY - prevY, mouseX - prevX) +
+                     (Math.random() - 0.5) * 2;
+        const velocity = (Math.random() * speed * 0.3) + 2;
+        const startX = x + (Math.random() - 0.5) * 20;
+        const startY = y + (Math.random() - 0.5) * 20;
+    
+        particle.style.left = startX + 'px';
+        particle.style.top = startY + 'px';
+    
+        let opacity = 1;
+        let currentX = startX;
+        let currentY = startY;
+    
+        function animateParticle() {
+            currentX += Math.cos(angle) * velocity;
+            currentY += Math.sin(angle) * velocity;
+    
+            particle.style.left = currentX + 'px';
+            particle.style.top = currentY + 'px';
+    
+            opacity -= 0.03;
+            particle.style.opacity = opacity;
+    
+            if (opacity > 0) {
+                requestAnimationFrame(animateParticle);
+            } else {
+                particle.remove();
+            }
+        }
+    
+        requestAnimationFrame(animateParticle);
+    }
+    </script>
+    
+</body>
+</html>

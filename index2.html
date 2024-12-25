@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Bootstrap CSS CDN -->
+  <link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  
+  <!-- Bootstrap Icons CDN -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+  --color-primary: #0d83fd;    /* Main brand color (blue) */
+  --color-light: #ffffff;               /* Light background color */
+  --color-dark: #333333;                /* Dark text color */
+  --color-white: #ffffff;               /* White color */
+}
+  
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+#topbar {
+    background: var( --color-primary);
+    height: 30px;
+    font-size: 14px;
+    transition: all 0.5s;
+    color: #fff;
+    padding: 0;
+   
+}
+
+/* Contact Info Styling */
+#topbar .contact-info {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+#topbar .contact-info i {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 10px;
+}
+
+#topbar .contact-info a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#topbar .contact-info a:hover {
+    color: #ddd; /* Hover color for email link */
+}
+
+/* Social Links Styling */
+#topbar .social-links {
+    display: flex;
+    align-items: center;
+}
+
+#topbar .social-links a {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+#topbar .social-links a:hover {
+    color: #ddd; /* Hover color for social icons */
+}
+
+
+#page1 {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-light);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-light));
+  background: linear-gradient(45deg, rgb(122, 126, 241), rgb(199, 199, 203));
+  background: linear-gradient(45deg, rgb(122, 126, 241) 0%, rgb(199, 199, 203) 50%, rgb(44, 24, 229) 100%);
+
+
+  position: relative;
+  padding: 0 0vw;
+  /* padding: 0 2vw; */
+  /* background-image: url('images/startae-team-7tXA8xwe4W4-unsplash.jpg'); */
+  background-size: cover;
+  background-position: center;
+  
+}
+
+#page1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  z-index: 1; /* Changed from -2 to 1 */
+  pointer-events: none; /* Allows clicking through the overlay */
+}
+/* 
+#our-services h1, #left h3 {
+    background: linear-gradient(to right, #1223e5, white); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+} */
+#our-services h1, #left h3 {
+    color: var(--color-primary);
+}
+
+
+nav h2
+{
+    /* color: var(--color-primary);  */
+    font-size: 2em; /* Adjust font size as needed */
+    font-weight: bold;
+    background: linear-gradient(71deg, var(--color-primary), rgb(95, 95, 218)); /* Define gradient colors and angle */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+nav {
+  padding: 1vw 0;
+  width: 100%;
+  background-color: var(--color-light);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: all ease 0.4s;
+
+  
+
+}
+
+nav h3 {
+  display: none;
+}
+
+#nav-part2 {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+#nav-part2 h4 {
+  padding: 1px 20px;
+  border: 1px solid var(--color-dark);
+  border-radius: 50px;
+  color: var(--color-dark);
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  transition: all ease 0.4s;
+  overflow: hidden;
+}
+
+#nav-part2 h4::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-primary);
+  left: 0;
+  bottom: -100%;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+}
+
+#nav-part2 h4:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+#nav-part2 h4 a {
+  color: var(--color-dark);
+  text-decoration: none;
+  position: relative;
+  z-index: 9;
+}
+
+#nav-part2 h4:hover a {
+  color: var(--color-light);
+}
+
+#our-services {
+  margin-top: 5vh;
+  padding: 2vh 0;
+  justify-content: space-evenly;
+  text-align: justify;
+}
+
+.buttongroups {
+  justify-content: center;
+  text-align: start;
+  margin-top: 2vh;
+}
+
+.btn-responsive {
+  min-width: 100px;
+  max-width: 150px;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-responsive:hover {
+  background-color: var(--color-white);
+  transform: scale(1.05);
+  color: var(--color-primary);
+}
+
+#center {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+  padding-bottom: 2.5vw;
+}
+
+#left h3 {
+  width: 40vw;
+  font-size: 1.8vw;
+  line-height: 2vw;
+}
+
+#center h1 {
+  font-size: 8vw;
+  text-align: right;
+  line-height: 9vw;
+  color: var(--color-primary);
+}
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Section 1 Styling */
+#part1-section1 {
+    background-color: #f4f6f9; /* Soft background */
+    padding: 1vh 0;
+    min-height: 90vh;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.business-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-buttons .btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.contact-buttons .btn:hover {
+    transform: scale(1.1);
+}
+
+.quote {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: #333;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.quote p {
+    margin: 0;
+}
+
+/* Image styling for responsiveness */
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Bootstrap Grid Overrides */
+@media (max-width: 991px) {
+    #part1-section1 .row {
+        justify-content: center;
+    }
+
+    #part1-section1 .col-lg-6 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 28px;
+    }
+
+    .business-description {
+        font-size: 16px;
+    }
+
+    .quote {
+        font-size: 18px;
+    }
+
+    .contact-buttons .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+#page2 {
+ 
+  width: 100%;
+  background-color: var(--color-light);
+  padding: 2vw 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+#counts {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1vw;
+  width: 100%;
+}
+
+.stat-box {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 20vw;
+  padding: 2vw 1.5vw;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 1vw;
+}
+
+.stat-box:hover {
+  transform: scale(1.05);
+}
+
+.stat-box h2 {
+  font-size: 3vw;
+  color: var(--color-dark);
+  margin-bottom: 0.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.stat-box p {
+  font-size: 1.2vw;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+.stat-box .bi {
+  font-size: 2.5vw;
+  color: var(--color-primary);
+  margin-right: 0.3vw;
+}
+/* Media query for phones */
+@media screen and (max-width: 768px) {
+  #page2 {
+    padding: 5vw 0;
+  }
+
+  #counts {
+    flex-direction: column; /* Stack the boxes vertically */
+    gap: 4vw; /* Increased gap for spacing */
+    align-items: center; /* Center the items */
+  }
+
+  .stat-box {
+    width: 80%; /* Take up more width for a centered look */
+    padding: 6vw 4vw; /* Add more padding for spacious design */
+    text-align: center; /* Ensure text alignment remains centered */
+  }
+
+  .stat-box h2 {
+    font-size: 6vw; /* Larger font for better visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the icon and text */
+  }
+
+  .stat-box p {
+    font-size: 4vw; /* Larger description text */
+  }
+
+  .stat-box .bi {
+    font-size: 7vw; /* Larger icon size for emphasis */
+    margin-right: 1vw; /* Space between icon and text */
+  }
+}
+
+.section-bg {
+    background: linear-gradient(71deg, #f8f8f8, #ffffff);
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 10px 25px;
+    margin: 0;
+    background: #e7f1fd;
+    color: #106eea;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(16, 110, 234, 0.2);
+}
+
+.section-title h3 {
+    margin: 20px 0 10px;
+    font-size: 34px;
+    font-weight: 700;
+    color: #333;
+}
+
+.section-title p {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.about .content h3 {
+    font-size: 26px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.about .content p.fst-italic {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.about .content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about .content ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about .content ul li i {
+    font-size: 24px;
+    color: #106eea;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.about .content ul li div h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.about .content ul li div p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.about .img-fluid {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-bg {
+    background-color: #f9fafc;
+}
+
+.team .member {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0px 4px 20px rgba(16, 110, 234, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.team .member:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 25px rgba(16, 110, 234, 0.2);
+}
+
+.team .member .member-img {
+    overflow: hidden;
+    border-bottom: 4px solid rgba(16, 110, 234, 0.15);
+}
+.team .member .member-img img {
+    width: 100%;
+    transition: transform 0.4s ease;
+}
+.team .member:hover .member-img img {
+    transform: scale(1.02);
+}
+
+.team .member .member-info {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.team .member .member-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.team .member .member-info span {
+    font-size: 15px;
+    color: #6c757d;
+    display: block;
+}
+
+.contact .info-box {
+    font-size: medium;
+    color: #444444;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.3);
+    padding: 10px 0 20px 0;
+}
+.contact .info-box i {
+    font-size: 30px;
+    color: #106eea;
+   
+    padding: 8px;
+   
+}
+.contact .php-email-form {
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
+    padding: 30px;
+}
+.contact  button[type=submit] {
+    background: #106eea;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+}
+#footer .footer-top {
+    padding: 60px 0 30px 0;
+    background: #fff;
+}
+#footer .footer-top .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #106eea;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+
+#footer .footer-top h4 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #444444;
+    position: relative;
+    padding-bottom: 12px;
+}
+#footer .footer-top .footer-links ul li {
+    padding: 1px 0;
+    display: flex;
+    align-items: center;
+    color: red;
+}
+#footer .footer-top .footer-links ul a {
+    color: #2f66d5;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+  </style>
+
+  <style>
+    #illustration {
+            width: 100%; /* Make it responsive */
+            max-width: 500px; /* Set a maximum width */
+            height: auto; /* Maintain aspect ratio */
+            background: none; /* Remove any background */
+            border-radius: 10px; /* Rounded corners */
+           
+        }
+  </style>
+  <style>
+    /* Services Section */
+#services {
+    padding: 60px 0;
+    background: #f9f9f9; /* Match section-bg class style */
+}
+
+#services .service-box {
+    text-align: center;
+    padding: 15px; /* Reduced from 20px */
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#services .service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#services .service-box i {
+    font-size: 30px; /* Reduced from 36px */
+    color: #106eea;
+    margin-bottom: 10px; /* Reduced from 15px */
+}
+
+#services .service-box h4 {
+    font-size: 18px; /* Reduced from 20px */
+    color: #444444;
+    margin-bottom: 8px; /* Reduced from 10px */
+}
+
+#services .service-box p {
+    font-size: 12px; /* Reduced from 14px */
+    color: #6c757d;
+}
+
+.navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 28px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+}
+
+
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-weight: 400;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #e44949;
+;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul li {
+    padding: 1px 0;
+    display: flex;
+    align-items: center;
+    color: red;
+}
+
+  </style>
+ 
+
+</head>
+<body id="body">
+  
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+  
+  
+  <div id="page1" class="d-none">
+   
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <h2>SURYAONE</h2>
+        </a>
+        
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto" id="nav-part2">
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Home</a></h4>
+            </li>
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Services</a></h4>
+            </li>
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Testimonials</a></h4>
+            </li>
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Contact</a></h4>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    
+
+    
+
+
+
+   
+  </div>
+
+  <section id="part1-section1">
+    <nav class="navbar navbar-expand-lg pt-2 pb-5">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <h2>SURYAONE</h2>
+        </a>
+        
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto" id="nav-part2">
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Home</a></h4>
+            </li>
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Services</a></h4>
+            </li>
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Testimonials</a></h4>
+            </li>
+            <li class="nav-item">
+              <h4><a class="nav-link" href="#">Contact</a></h4>
+            </li>
+            <li class="nav-item dropdown">
+              <h4><a class="nav-link" href="#">Articles</a></h4>
+              <ul>
+                <li><a href="#">Drop Down 1</a></li>
+                <li><a href="#">Drop Down 2</a></li>
+                <li><a href="#">Drop Down 3</a></li>
+                <li><a href="#">Drop Down 4</a></li>
+              </ul>
+            </li>
+
+          
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <!-- Left side: Illustrator Image -->
+          
+            
+            <!-- Right side: Business Text and Contact Us -->
+            <div class="col-lg-6 col-12 mb-4 text-center">
+              <h2 class="section-title">Welcome to Our Business</h2>
+              <p class="business-description">We provide the best solutions for your business needs. Reach out to us and let's grow together.</p>
+              <div class="contact-buttons">
+                  <a href="tel:+1234567890" class="btn btn-primary m-2"><i class="fas fa-phone-alt"></i> Contact Us</a>
+                  <a href="https://wa.me/1234567890" class="btn btn-success m-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+              </div>
+              <blockquote class="quote">
+                  <p>"Success is not the key to happiness. Happiness is the key to success." - Albert Schweitzer</p>
+              </blockquote>
+          </div>
+          <div class="col-md-6 text-center">
+            <img id="illustration" src="images\[removal.ai]_ceee5da2-6507-49b3-9ade-90bfa7a8c195-designer-4.png" alt="Business Illustration" class="img-fluid mb-3">
+        </div>
+        </div>
+    </div>
+</section>
+
+  <div id="page2">
+    <div id="counts">
+        <div class="stat-box">
+            <h2><i class="bi bi-emoji-smile-fill"></i> 232</h2>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-box">
+            <h2><i class="bi bi-folder-fill"></i> 521</h2>
+            <p>Projects</p>
+        </div>
+        <div class="stat-box">
+            <h2><i class="bi bi-headset"></i> 1463</h2>
+            <p>Hours of Support</p>
+        </div>
+        <div class="stat-box">
+            <h2><i class="bi bi-people-fill"></i> 15</h2>
+            <p>Hard Workers</p>
+        </div>
+    </div>
+
+
+
+
+ 
+</div>
+
+
+
+<section id="about" class="about section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>About</h2>
+        <h3>Find Out More <span>About Us</span></h3>
+        <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            .</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+          <img src="https://mariogames.in/BizLand/BizLand/assets/img/about.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+          <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+          <p class="fst-italic">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.
+          </p>
+          <ul>
+            <li>
+                <i class="bi bi-shop"></i>
+                <div>
+                    <h5>Ullamco laboris nisi ut aliquip consequat</h5>
+                    <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+                </div>
+            </li>
+            <li>
+                <i class="bi bi-images"></i>
+                <div>
+                    <h5>Magnam soluta odio exercitationem reprehenderi</h5>
+                    <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
+                </div>
+            </li>
+        </ul>
+        
+          <p>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="services section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Services</h2>
+            <h3>Our <span>Professional Services</span></h3>
+            <p>Discover the range of services we offer to cater to your needs with quality and dedication.</p>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-code-slash"></i>
+                    <h4>Web Development</h4>
+                    <p>Building responsive and dynamic websites tailored to your business needs.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-phone"></i>
+                    <h4>Mobile Development</h4>
+                    <p>Custom mobile applications with intuitive user interfaces and seamless performance.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-brush"></i>
+                    <h4>UI/UX Design</h4>
+                    <p>Creative designs that ensure user-friendly interfaces and engaging experiences.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-pie-chart"></i>
+                    <h4>Data Analytics</h4>
+                    <p>Analyzing complex datasets to drive informed business decisions.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-shield-lock"></i>
+                    <h4>Cybersecurity</h4>
+                    <p>Protecting your business with top-notch cybersecurity solutions.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-cloud"></i>
+                    <h4>Cloud Solutions</h4>
+                    <p>Providing scalable and secure cloud computing services for your needs.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-shop"></i>
+                    <h4>E-commerce Solutions</h4>
+                    <p>Setting up feature-rich online stores to grow your business online.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-camera"></i>
+                    <h4>Photography</h4>
+                    <p>High-quality photography services for events and promotional needs.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-vector-pen"></i>
+                    <h4>Graphic Design</h4>
+                    <p>Designing visually stunning graphics to enhance your brand identity.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-megaphone"></i>
+                    <h4>Digital Marketing</h4>
+                    <p>Helping your business grow with strategic marketing campaigns.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-stack"></i>
+                    <h4>Full-Stack Development</h4>
+                    <p>Offering end-to-end development solutions for web and mobile platforms.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch mb-4">
+                <div class="service-box">
+                    <i class="bi bi-music-note-beamed"></i>
+                    <h4>Video Editing</h4>
+                    <p>Professional video editing services to bring your vision to life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  
+
+  <section id="team" class="team section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Team</h2>
+            <h3>Our Hardworking <span>Team</span></h3>
+            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+              <div class="member">
+                  <div class="member-img">
+                      <img src="https://mariogames.in/BizLand/BizLand/assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="member-info">
+                      <h4>Walter White</h4>
+                      <span>Chief Executive Officer</span>
+                  </div>
+              </div>
+          </div>
+      
+          <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+              <div class="member">
+                  <div class="member-img">
+                      <img src="https://mariogames.in/BizLand/BizLand/assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="member-info">
+                      <h4>Sarah Johnson</h4>
+                      <span>Product Manager</span>
+                  </div>
+              </div>
+          </div>
+      
+          <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+              <div class="member">
+                  <div class="member-img">
+                      <img src="https://mariogames.in/BizLand/BizLand/assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="member-info">
+                      <h4>William Anderson</h4>
+                      <span>CTO</span>
+                  </div>
+              </div>
+          </div>
+      
+          <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="800">
+              <div class="member">
+                  <div class="member-img">
+                      <img src="https://mariogames.in/BizLand/BizLand/assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="member-info">
+                      <h4>Amanda Jepson</h4>
+                      <span>Accountant</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+
+    </div>
+</section>
+
+<section id="contact" class="contact section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Contact</h2>
+            <h3><span>Contact Us</span></h3>
+            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+        </div>
+
+        <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4">
+                <div class="info-box mb-4">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Our Address</h3>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="info-box mb-4">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>contact@example.com</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="info-box mb-4">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Call Us</h3>
+                    <p>+1 5589 55488 55</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-6">
+                <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen=""></iframe>
+            </div>
+
+            <div class="col-lg-6">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <div class="row">
+                        <div class="col form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                        </div>
+                        <div class="col form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center" id=""><button type="submit">Send Message</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer" class="p-3">
+
+    <div class="footer-top">
+        <div class="container">
+          <div class="row">
+      
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>Financial Services<span>.</span></h3>
+              <p>
+                A108 Adam Street <br>
+                New Delhi, India 110001 <br><br>
+                <strong>Phone:</strong> +91 98765 43210 <br>
+                <strong>Email:</strong> info@example.com <br>
+              </p>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Investment Planning</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Financial Consulting</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Tax Advisory</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Wealth Management</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Retirement Planning</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Social Networks</h4>
+              <p>Follow us on social media to stay updated with our latest news and offers.</p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      
+      <div class="container py-4">
+        <div class="copyright text-center">
+          © Copyright <strong><span>Financial Services</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits text-center">
+          Designed by <a href="">Pratham Jain</a>
+        </div>
+      </div>
+
+</footer>
+      
+
+
+<script>
+    // Function to update CSS variables
+    function updateColor(varName, colorValue) {
+      document.documentElement.style.setProperty(varName, colorValue);
+    }
+
+    // Event listeners for color inputs
+    document.getElementById("colorPrimary").addEventListener("input", function() {
+      updateColor("--color-primary", this.value);
+    });
+
+    document.getElementById("colorLight").addEventListener("input", function() {
+      updateColor("--color-light", this.value);
+    });
+
+    document.getElementById("colorDark").addEventListener("input", function() {
+      updateColor("--color-dark", this.value);
+    });
+
+    document.getElementById("colorWhite").addEventListener("input", function() {
+      updateColor("--color-white", this.value);
+    });
+  </script>
+  <!-- Bootstrap JS, Popper.js, and jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+function animateBackground(elementId, colors, stops, initialAngle = 45, speed = 1) {
+    const page = document.getElementById(elementId);
+    let angle = initialAngle;
+
+    function animate() {
+        angle += speed; // Increment the angle based on the speed parameter
+        if (angle >= 360) angle = 0; // Reset the angle to keep it within 360 degrees
+
+        // Build the gradient string with angle, colors, and stops
+        let gradient = `linear-gradient(${angle}deg`;
+        colors.forEach((color, index) => {
+            gradient += `, ${color} ${stops[index] || ''}`;
+        });
+        gradient += ')';
+
+        page.style.background = gradient; // Apply the gradient to the element
+        requestAnimationFrame(animate); // Call the function on the next frame
+    }
+
+    animate(); 
+}
+animateBackground('page1', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // powder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    0,   // Initial angle (align starting angles)
+    0.5  // Adjust speed to unify pace
+);
+animateBackground('page2', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // powder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    10,  // Small angle variation for offset
+    0.5  // Unified speed
+);
+animateBackground('about', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // powder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    20,  // Small angle variation for offset
+    0.5  // Unified speed
+);
+animateBackground('team', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // powder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    30,  // Small angle variation for offset
+    0.5  // Unified speed
+);
+animateBackground('contact', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // powder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    40,  // Small angle variation for offset
+    0.5  // Unified speed
+);
+animateBackground('footer', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // powder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    50,  // Small angle variation for offset
+    0.5  // Unified speed
+);
+
+  </script>
+  <script>
+    animateBackground('part1-section1', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // popagewder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    50,  // Small angle variation for offset
+    0.5  // Unified speed
+);
+animateBackground('services', 
+    [
+        'rgb(173, 216, 230,0.3)', // powder blue
+        'rgb(255, 255, 255)',     // white
+        'rgb(173, 216, 230,0.5)', // popagewder blue
+    ], 
+    ['0%', '23%', '56%', '65%', '94%'], 
+    50,  // Small angle variation for offset
+    0.5  // Unified speed
+);
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us Section</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Section Styling */
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .about-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #6a1b9a;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Left Scrolling Highlights */
+        .highlights-container {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .highlights {
+            display: flex;
+            flex-direction: column;
+            animation: scroll-up 45s linear infinite;
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .highlight-item {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #6a1b9a;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        /* Card Section */
+        .feature-card {
+            background-color: #fff;
+            border: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 6px 15px rgba(106, 27, 154, 0.3);
+        }
+
+        .feature-card h4 {
+            font-weight: 600;
+            color: #6a1b9a;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row">
+                <!-- Left Scrolling Highlights -->
+                <div class="col-md-4">
+                    <div class="highlights-container">
+                        <div class="highlights">
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <!-- Duplicate for infinite loop -->
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                            <div class="highlight-item">Easily Accessible</div>
+                            <div class="highlight-item">24 Years Experience</div>
+                            <div class="highlight-item">800 Salons</div>
+                            <div class="highlight-item">Uncompromised Quality</div>
+                            <div class="highlight-item">Book A Service Today</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content and Features -->
+                <div class="col-md-8 about-content">
+                    <h2 class="about-title">Why Choose Us?</h2>
+                    <p>
+                        With over 24 years of experience, Naturals offers the benefit of decades of expertise 
+                        in the beauty industry. Our personalized services are tailored to meet your unique needs, 
+                        ensuring that you receive the care and attention you deserve. We are committed to delivering 
+                        uncompromised quality using premium products and innovative techniques.
+                    </p>
+                    <div class="row mt-4">
+                        <!-- Feature Card 1 -->
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h4>Experienced Stylists</h4>
+                                <p>Our team comprises highly trained professionals to give you the perfect look.</p>
+                            </div>
+                        </div>
+                        <!-- Feature Card 2 -->
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h4>Global Reach</h4>
+                                <p>With 800 salons worldwide, we make premium services accessible to everyone.</p>
+                            </div>
+                        </div>
+                        <!-- Feature Card 3 -->
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h4>Quality Products</h4>
+                                <p>We use only the highest quality, premium beauty products for exceptional results.</p>
+                            </div>
+                        </div>
+                        <!-- Feature Card 4 -->
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h4>Customer Focus</h4>
+                                <p>Our personalized approach ensures that you receive the care you deserve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

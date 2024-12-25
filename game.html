@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+</head>
+<body>
+    <script>
+        // Game container setup
+        const game = document.createElement('div');
+        game.style.cssText = 'position:fixed;width:100%;height:100%;top:0;left:0;margin:0;overflow:hidden;background:linear-gradient(180deg,#1a2a6c 0%,#b21f1f 50%,#fdbb2d 100%)';
+        document.body.appendChild(game);
+
+        // Score display
+        const scoreDisplay = document.createElement('div');
+        scoreDisplay.style.cssText = `
+            position:fixed;
+            top:20px;
+            right:20px;
+            font-size:48px;
+            color:#fff;
+            font-family:Arial;
+            text-shadow:2px 2px 4px rgba(0,0,0,0.5);
+            z-index:1000;
+        `;
+        game.appendChild(scoreDisplay);
+
+        // High score display
+        const highScoreDisplay = document.createElement('div');
+        highScoreDisplay.style.cssText = `
+            position:fixed;
+            top:80px;
+            right:20px;
+            font-size:24px;
+            color:#fff;
+            font-family:Arial;
+            text-shadow:2px 2px 4px rgba(0,0,0,0.5);
+            z-index:1000;
+        `;
+        game.appendChild(highScoreDisplay);
+
+        // Game state
+        const state = {
+            score: 0,
+            highScore: localStorage.getItem('highScore') || 0,
+            platforms: [],
+            gameOver: false,
+            camera: { y: 0 },
+            difficultyLevel: 1,
+            platformCount: 0
+        };
+
+        // Player object
+        const player = {
+            element: document.createElement('div'),
+            x: window.innerWidth / 2,
+            y: window.innerHeight - 100,
+            vy: 0,
+            vx: 0,
+            isJumping: false
+        };
+
+        // Player styling
+        player.element.style.cssText = `
+            position:absolute;
+            width:40px;
+            height:40px;
+            background:radial-gradient(circle at 30% 30%, #00ff87, #60efff);
+            border-radius:50%;
+            transform:translate(-50%, -50%);
+            box-shadow:0 0 20px #60efff;
+            transition:transform 0.1s;
+        `;
+        game.appendChild(player.element);
+
+        // Physics settings
+        const physics = {
+            gravity: 0.6,
+            jumpForce: -15,
+            moveSpeed: 8,
+            maxPlatforms: 15,
+            minPlatformWidth: 60,
+            maxPlatformWidth: 150
+        };
+
+        // Generate random platform
+        function generatePlatform(y) {
+            const platform = document.createElement('div');
+            const width = Math.random() * (physics.maxPlatformWidth - physics.minPlatformWidth) + physics.minPlatformWidth;
+            const x = Math.random() * (window.innerWidth - width);
+            
+            // Platform color based on height (difficulty)
+            const hue = (state.platformCount * 2) % 360;
+            
+            platform.style.cssText = `
+                position:absolute;
+                width:${width}px;
+                height:15px;
+                left:${x}px;
+                top:${y}px;
+                background:linear-gradient(45deg, hsl(${hue}, 70%, 50%), hsl(${hue + 30}, 70%, 60%));
+                border-radius:7px;
+                box-shadow:0 0 10px rgba(255,255,255,0.3);
+                transform:translateZ(0);
+            `;
+            
+            game.appendChild(platform);
+            state.platforms.push({
+                element: platform,
+                x: x,
+                y: y,
+                width: width,
+                touched: false
+            });
+            
+            state.platformCount++;
+        }
+
+        // Initialize platforms
+        function initPlatforms() {
+            // Initial platform under player
+            generatePlatform(window.innerHeight - 50);
+            
+            // Generate initial set of platforms
+            for (let i = 0; i < physics.maxPlatforms; i++) {
+                generatePlatform(window.innerHeight - 200 - i * 100);
+            }
+        }
+
+        // Update game state
+        function update() {
+            if (state.gameOver) return;
+
+            // Update player velocity
+            player.vy += physics.gravity;
+            player.y += player.vy;
+            player.x += player.vx;
+
+            // Screen wrapping
+            if (player.x > window.innerWidth) player.x = 0;
+            if (player.x < 0) player.x = window.innerWidth;
+
+            // Camera follow
+            if (player.y < window.innerHeight / 2) {
+                const diff = window.innerHeight / 2 - player.y;
+                player.y += diff;
+                state.camera.y -= diff;
+                
+                // Move platforms down
+                state.platforms.forEach(platform => {
+                    platform.y += diff;
+                    platform.element.style.top = platform.y + 'px';
+                });
+
+                // Remove platforms that are too low
+                state.platforms = state.platforms.filter(platform => {
+                    if (platform.y > window.innerHeight) {
+                        game.removeChild(platform.element);
+                        return false;
+                    }
+                    return true;
+                });
+
+                // Generate new platforms
+                while (state.platforms.length < physics.maxPlatforms) {
+                    generatePlatform(state.platforms[0].y - 100);
+                }
+            }
+
+            // Platform collision
+            let onPlatform = false;
+            state.platforms.forEach(platform => {
+                if (player.vy > 0 && // Moving down
+                    player.x > platform.x && 
+                    player.x < platform.x + platform.width &&
+                    player.y > platform.y - 20 &&
+                    player.y < platform.y + 20) {
+                    
+                    // Bounce on platform
+                    player.vy = physics.jumpForce;
+                    onPlatform = true;
+                    player.isJumping = false;
+
+                    // Score point if platform hasn't been touched
+                    if (!platform.touched) {
+                        platform.touched = true;
+                        state.score++;
+                        scoreDisplay.textContent = `Score: ${state.score}`;
+                        
+                        // Update high score
+                        if (state.score > state.highScore) {
+                            state.highScore = state.score;
+                            localStorage.setItem('highScore', state.score);
+                            highScoreDisplay.textContent = `High Score: ${state.highScore}`;
+                        }
+
+                        // Increase difficulty every 10 points
+                        if (state.score % 10 === 0) {
+                            state.difficultyLevel++;
+                            physics.gravity += 0.05;
+                            physics.jumpForce -= 0.5;
+                        }
+
+                        // Platform effect
+                        gsap.to(platform.element, {
+                            scale: 1.2,
+                            duration: 0.1,
+                            yoyo: true,
+                            repeat: 1
+                        });
+                    }
+                }
+            });
+
+            // Update player position
+            player.element.style.left = player.x + 'px';
+            player.element.style.top = player.y + 'px';
+
+            // Game over if player falls below screen
+            if (player.y > window.innerHeight) {
+                gameOver();
+            }
+
+            // Particle effect while moving up
+            if (player.vy < 0) {
+                createParticle(player.x, player.y);
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Create particle effect
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position:absolute;
+                width:8px;
+                height:8px;
+                background:#60efff;
+                border-radius:50%;
+                left:${x}px;
+                top:${y}px;
+                pointer-events:none;
+            `;
+            game.appendChild(particle);
+
+            gsap.to(particle, {
+                opacity: 0,
+                y: '+=50',
+                x: Math.random() * 40 - 20,
+                duration: 0.5,
+                onComplete: () => game.removeChild(particle)
+            });
+        }
+
+        // Game over handling
+        function gameOver() {
+            state.gameOver = true;
+            
+            // Create game over screen
+            const gameOverScreen = document.createElement('div');
+            gameOverScreen.style.cssText = `
+                position:fixed;
+                top:50%;
+                left:50%;
+                transform:translate(-50%, -50%);
+                background:rgba(0,0,0,0.8);
+                padding:40px;
+                border-radius:20px;
+                text-align:center;
+                color:white;
+                font-family:Arial;
+            `;
+            gameOverScreen.innerHTML = `
+                <h1>Game Over!</h1>
+                <p>Score: ${state.score}</p>
+                <p>High Score: ${state.highScore}</p>
+                <button style="padding:10px 20px;font-size:20px;margin-top:20px;cursor:pointer;
+                            background:#60efff;border:none;border-radius:10px;">Play Again</button>
+            `;
+            game.appendChild(gameOverScreen);
+
+            gameOverScreen.querySelector('button').onclick = () => window.location.reload();
+        }
+
+        // Controls
+        document.addEventListener('keydown', e => {
+            switch(e.key) {
+                case 'ArrowLeft':
+                case 'a':
+                    player.vx = -physics.moveSpeed;
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                    player.vx = physics.moveSpeed;
+                    break;
+                case ' ':
+                case 'ArrowUp':
+                case 'w':
+                    if (!player.isJumping) {
+                        player.vy = physics.jumpForce;
+                        player.isJumping = true;
+                        gsap.to(player.element, {
+                            scale: 1.2,
+                            duration: 0.1,
+                            yoyo: true,
+                            repeat: 1
+                        });
+                    }
+                    break;
+            }
+        });
+
+        document.addEventListener('keyup', e => {
+            if (['ArrowLeft', 'ArrowRight', 'a', 'd'].includes(e.key)) {
+                player.vx = 0;
+            }
+        });
+
+        // Touch controls
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchmove', e => {
+            const diff = e.touches[0].clientX - touchStartX;
+            player.vx = diff > 0 ? physics.moveSpeed : -physics.moveSpeed;
+        });
+
+        document.addEventListener('touchend', () => {
+            player.vx = 0;
+        });
+
+        // Initialize game
+        highScoreDisplay.textContent = `High Score: ${state.highScore}`;
+        scoreDisplay.textContent = 'Score: 0';
+        initPlatforms();
+        update();
+    </script>
+</body>
+</html>

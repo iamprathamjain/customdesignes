@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+</head>
+<body>
+    <script>
+        // Create game container
+        const game = document.createElement('div');
+        game.style.cssText = 'position:fixed;width:100%;height:100%;top:0;left:0;background:#1a1a1a;overflow:hidden';
+        document.body.appendChild(game);
+
+        // Score display
+        const score = document.createElement('div');
+        score.style.cssText = 'position:fixed;top:20px;right:20px;color:white;font-size:24px;font-family:Arial';
+        game.appendChild(score);
+
+        // Game state
+        const state = {
+            score: 0,
+            platforms: [],
+            gameOver: false
+        };
+
+        // Player
+        const player = {
+            element: document.createElement('div'),
+            x: window.innerWidth / 2,
+            y: window.innerHeight - 100,
+            vy: 0,
+            vx: 0
+        };
+
+        player.element.style.cssText = 'position:absolute;width:30px;height:30px;background:#00ff87;border-radius:50%';
+        game.appendChild(player.element);
+
+        // Create platform
+        function createPlatform(x, y, width) {
+            const platform = document.createElement('div');
+            platform.style.cssText = `position:absolute;width:${width}px;height:10px;background:#fff;left:${x}px;top:${y}px`;
+            game.appendChild(platform);
+            return { element: platform, x, y, width };
+        }
+
+        // Initialize platforms
+        function init() {
+            // Create floor
+            state.platforms.push(createPlatform(0, window.innerHeight - 50, window.innerWidth));
+            
+            // Create initial platforms
+            for (let i = 0; i < 10; i++) {
+                const x = Math.random() * (window.innerWidth - 100);
+                const y = window.innerHeight - 150 - (i * 100);
+                const width = 100;
+                state.platforms.push(createPlatform(x, y, width));
+            }
+        }
+
+        // Game loop
+        function update() {
+            if (state.gameOver) return;
+
+            // Physics
+            player.vy += 0.5; // gravity
+            player.y += player.vy;
+            player.x += player.vx;
+
+            // Screen wrap
+            if (player.x > window.innerWidth) player.x = 0;
+            if (player.x < 0) player.x = window.innerWidth;
+
+            // Camera follow
+            if (player.y < window.innerHeight / 2) {
+                const diff = window.innerHeight / 2 - player.y;
+                player.y += diff;
+                
+                // Move platforms
+                state.platforms.forEach(platform => {
+                    platform.y += diff;
+                    platform.element.style.top = platform.y + 'px';
+                    
+                    // Remove and create new platforms
+                    if (platform.y > window.innerHeight) {
+                        game.removeChild(platform.element);
+                        const x = Math.random() * (window.innerWidth - 100);
+                        const y = platform.y - window.innerHeight;
+                        state.platforms[state.platforms.indexOf(platform)] = createPlatform(x, y, 100);
+                        state.score++;
+                        score.textContent = `Score: ${state.score}`;
+                    }
+                });
+            }
+
+            // Platform collision
+            state.platforms.forEach(platform => {
+                if (player.vy > 0 && 
+                    player.x > platform.x && 
+                    player.x < platform.x + platform.width &&
+                    player.y > platform.y - 15 &&
+                    player.y < platform.y + 15) {
+                    player.vy = -15; // jump
+                }
+            });
+
+            // Game over
+            if (player.y > window.innerHeight) {
+                state.gameOver = true;
+                alert(`Game Over! Score: ${state.score}\nClick OK to restart`);
+                window.location.reload();
+            }
+
+            // Update player position
+            player.element.style.left = (player.x - 15) + 'px';
+            player.element.style.top = (player.y - 15) + 'px';
+
+            requestAnimationFrame(update);
+        }
+
+        // Controls
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft' || e.key === 'a') player.vx = -5;
+            if (e.key === 'ArrowRight' || e.key === 'd') player.vx = 5;
+        });
+
+        document.addEventListener('keyup', e => {
+            if (['ArrowLeft', 'ArrowRight', 'a', 'd'].includes(e.key)) player.vx = 0;
+        });
+
+        // Touch controls
+        let touchStart = 0;
+        document.addEventListener('touchstart', e => touchStart = e.touches[0].clientX);
+        document.addEventListener('touchmove', e => {
+            player.vx = e.touches[0].clientX > touchStart ? 5 : -5;
+        });
+        document.addEventListener('touchend', () => player.vx = 0);
+
+        // Start game
+        init();
+        update();
+    </script>
+</body>
+</html>

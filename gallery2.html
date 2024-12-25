@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+    <style>
+        .gallery {
+            background-color: #f5f5f5;
+            padding: 3rem 0;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-description {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #555;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-thumbnails a {
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .gallery-thumbnails img {
+            border-radius: 10px;
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-thumbnails img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <section class="gallery">
+        <div class="container">
+            <h2 class="gallery-title">Our School Memories</h2>
+            <p class="gallery-description">Explore moments captured from various school events and activities.</p>
+            <div class="gallery-thumbnails">
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+                <a href="Designer (25).jpeg" data-fancybox="gallery" data-caption="Annual Sports Day">
+                    <img src="Designer (25).jpeg" alt="Annual Sports Day">
+                </a>
+             
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+            Thumbs: false,
+            Toolbar: {
+                display: ["close"],
+            },
+        });
+    </script>
+</body>
+</html>

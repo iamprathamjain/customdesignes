@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop Landing Page Builder</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .drag-item {
+      padding: 10px;
+      margin: 10px;
+      border: 2px dashed #aaa;
+      border-radius: 5px;
+      cursor: move;
+    }
+    .canvas {
+      width: 100%;
+      height: 500px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      margin-top: 20px;
+      padding: 10px;
+      position: relative;
+      overflow: auto;
+    }
+    .canvas .resizable {
+      position: absolute;
+      border: 1px solid #999;
+      padding: 10px;
+      resize: both;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Drag and Drop Landing Page Builder</h1>
+
+    <!-- Tools Section -->
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Elements</h4>
+        <div id="tools">
+          <div class="drag-item" draggable="true" data-type="h1">Heading</div>
+          <div class="drag-item" draggable="true" data-type="p">Paragraph</div>
+          <div class="drag-item" draggable="true" data-type="button">Button</div>
+        </div>
+      </div>
+
+      <!-- Canvas Section -->
+      <div class="col-md-8">
+        <h4>Canvas</h4>
+        <div id="canvas" class="canvas"></div>
+        <button id="exportBtn" class="btn btn-primary mt-3">Export HTML</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tools = document.getElementById('tools');
+    const canvas = document.getElementById('canvas');
+    const exportBtn = document.getElementById('exportBtn');
+
+    // Drag Start
+    tools.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('type', e.target.dataset.type);
+    });
+
+    // Drag Over
+    canvas.addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+
+    // Drop on Canvas
+    canvas.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const type = e.dataTransfer.getData('type');
+      let newElement;
+
+      // Create element based on type
+      if (type === 'h1') {
+        newElement = document.createElement('h1');
+        newElement.textContent = 'Editable Heading';
+      } else if (type === 'p') {
+        newElement = document.createElement('p');
+        newElement.textContent = 'Editable Paragraph';
+      } else if (type === 'button') {
+        newElement = document.createElement('button');
+        newElement.textContent = 'Click Me';
+        newElement.className = 'btn btn-success';
+      }
+
+      // Make element editable and resizable
+      if (newElement) {
+        newElement.contentEditable = true;
+        newElement.className += ' resizable';
+        newElement.style.position = 'absolute';
+        newElement.style.top = e.offsetY + 'px';
+        newElement.style.left = e.offsetX + 'px';
+        canvas.appendChild(newElement);
+      }
+    });
+
+    // Export HTML
+    exportBtn.addEventListener('click', () => {
+      const htmlContent = canvas.innerHTML;
+      const completeHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exported Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div style="margin: 20px;">
+    ${htmlContent}
+  </div>
+</body>
+</html>`;
+
+
+      const blob = new Blob([completeHTML], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'landing_page.html';
+      a.click();
+    });
+  </script>
+</body>
+</html>
